@@ -10,10 +10,14 @@ Supporting the following:
 - eslint
 - prettier
 
+## Close this template ##
+```shell
+  git clone --depth=1 https://github.com/richardhsueh/react-typescript-template.git <YOUR_PROJECT_NAME>
+```
 
 ## Start Developing ##
 
 ```shell
-npm install
-npm run dev
+  npm install
+  npm run dev
 ```
