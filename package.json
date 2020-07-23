@@ -2,7 +2,12 @@
   "name": "react-typescript-template",
   "version": "1.0.0",
   "description": "react+typescript+webpack",
-  "main": "index.js",
+  "main": "index.tsx",
+  "engines": {
+    "npm": ">=5",
+    "node": ">=8.15.1"
+  },
+  "author": "Richard Hsueh",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.js --progress --inline",
     "prebuild": "rimraf dist",
@@ -10,7 +15,6 @@
     "start": "serve dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
@@ -22,6 +26,8 @@
     "react-dom": "^16.13.1",
     "react-i18next": "^11.7.0",
     "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-table": "^7.3.2",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
@@ -42,6 +48,8 @@
     "@types/node": "^14.0.24",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router": "^5.1.8",
+    "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
