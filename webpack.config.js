@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -8,10 +7,9 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    main: path.resolve(__dirname, './src/index.tsx'),
-  },
+  entry: [require.resolve('react-app-polyfill/ie11'), path.resolve(__dirname, './src/index.tsx')],
   output: {
+    path: path.resolve(__dirname, 'public'),
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
   },
