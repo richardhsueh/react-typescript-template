@@ -2,6 +2,8 @@
 
 This is a boilerplate combining React.js and TypeScript. Bundle with Webpack.
 
+![image](https://github.com/richardhsueh/react-typescript-template/blob/master/screen.gif)
+
 Supporting the following:
 - Styled-components
 - SCSS/CSS
