@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import LanguageButton from '../LanguageButton';
 import './index.scss';
 
 const shimmer = keyframes`
@@ -17,6 +19,7 @@ const H1 = styled.span`
   margin: 0;
   font-size: 7rem;
   line-height: 1;
+  font-weight: 900;
   text-align: center;
   background-clip: text;
   -webkit-background-clip: text;
@@ -24,12 +27,16 @@ const H1 = styled.span`
   background-image: linear-gradient(90deg, #ff4d4d, #f9cb28 20%, #00dfd8 60%, #007cf0);
   background-size: 400% 400%;
   animation: ${shimmer} 5s ease infinite;
+  overflow-wrap: break-word;
 `;
 
 const App = () => {
+  const { t } = useTranslation('translation');
+
   return (
     <div>
-      <H1>React. Typescript. Webpack. </H1>
+      <LanguageButton />
+      <H1>React. Typescript. Webpack. {t('welcome')}</H1>
     </div>
   );
 };
