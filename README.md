@@ -3,12 +3,12 @@
 This is a boilerplate combining React.js and TypeScript. Bundle with Webpack.
 
 Supporting the following:
-- SCSS/CSS
-- React-refresh
-- Redux + Redux-thunk
 - Styled-components
+- SCSS/CSS
+- React-refresh enabled
 - i18next
-- Hot-reload
+- eslint
+- prettier
 
 
 ## Start Developing ##
