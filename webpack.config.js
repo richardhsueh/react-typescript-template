@@ -1,35 +1,34 @@
-const webpack = require("webpack");
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const webpack = require('webpack');
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    main: path.resolve(__dirname, "./src/index.tsx"),
+    main: path.resolve(__dirname, './src/index.tsx'),
   },
   output: {
-    path: path.resolve(__dirname, "public"),
-    publicPath: "/",
-    filename: "[name].js",
-    chunkFilename: "[name].chunk.js",
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
   },
-  devtool: "eval",
+  devtool: 'eval',
   module: {
     rules: [
       {
         test: /\.(tsx?)$/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
-              plugins: ["react-refresh/babel"],
+              plugins: ['react-refresh/babel'],
             },
           },
           {
-            loader: "ts-loader",
+            loader: 'ts-loader',
             options: {
               // disable type checker - we will use it in fork plugin
               transpileOnly: true,
@@ -40,44 +39,45 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.html$/,
-        use: "html-loader",
+        use: 'html-loader',
         exclude: /node_modules/,
       },
     ],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      logger: { infrastructure: "silent", issues: "console" },
-    }),
-    new CleanWebpackPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("development"),
-      },
-    }),
     new ReactRefreshPlugin({
       overlay: false,
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(true),
-    new HtmlWebpackPlugin({ template: "./index.html", inject: true }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+    new HtmlWebpackPlugin({ template: './index.html', inject: true }),
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/, // exclude node_modules
+      failOnError: false, // show a warning when there is a circular dependency
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      logger: { infrastructure: 'silent', issues: 'console' },
+    }),
   ],
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx"],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
   optimization: {
     splitChunks: {
       // include all types of chunks
-      chunks: "all",
+      chunks: 'all',
     },
   },
   devServer: {
-    hot: true,
     historyApiFallback: true,
-    contentBase: "./",
+    contentBase: './',
   },
 };
