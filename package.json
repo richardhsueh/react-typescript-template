@@ -9,7 +9,7 @@
   },
   "author": "Richard Hsueh",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.js --progress --inline",
+    "dev": "webpack-dev-server --config webpack.config.js --progress --inline --hot",
     "prebuild": "rimraf dist",
     "build": "webpack --config webpack.prod.js --hide-modules --progress --inline",
     "start": "serve dist",
