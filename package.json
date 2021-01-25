@@ -73,7 +73,7 @@
     "fork-ts-checker-webpack-plugin": "5.2.1",
     "html-loader": "1.3.2",
     "html-webpack-plugin": "4.3.0",
-    "node-sass": "4.14.1",
+    "node-sass": "5.0.0",
     "path": "0.12.7",
     "prettier": "2.0.5",
     "react-app-polyfill": "1.0.6",
