@@ -81,7 +81,7 @@
     "sass-loader": "9.0.3",
     "scss-loader": "0.0.1",
     "serve": "11.3.2",
-    "style-loader": "1.2.1",
+    "style-loader": "2.0.0",
     "terser-webpack-plugin": "3.1.0",
     "ts-loader": "8.0.12",
     "typescript": "4.1.3",
