@@ -78,7 +78,7 @@
     "prettier": "2.0.5",
     "react-app-polyfill": "2.0.0",
     "react-refresh": "0.8.3",
-    "sass-loader": "9.0.3",
+    "sass-loader": "11.1.1",
     "scss-loader": "0.0.1",
     "serve": "11.3.2",
     "style-loader": "1.2.1",
